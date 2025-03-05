@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Квест на 8 Березня</title>
+    <style>
+        body {
+            background-color: black;
+            color: black;
+            text-align: center;
+            font-family: Arial, sans-serif;
+        }
+        h1 {
+            color: black;
+            text-align: center;
+        }
+        .container {
+            max-width: 600px;
+            margin: 0 auto;
+            text-align: center;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        img {
+            width: 80%;
+            max-width: 600px;
+            margin-top: 20px;
+        }
+        .button {
+            background-color: red;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-top: 20px;
+        }
+        .button:hover {
+            background-color: black;
+        }
+        .message {
+            font-size: 1.2em;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <img src="https://img.gazeta.ru/files3/805/17772805/upload-11-pic_32ratio_1200x800-1200x800-84512.jpg" alt="Billy the Puppet">
+<div class="container">
+    <h1>Перше завдання</h1>
+    <p>Тобі треба знайти наступну підказку, та ввести правильну відповідь, за кожну не правильну, я буду відріза...кхм цілувати тебе :)</p>
+    <p><strong>Підказка:</strong> З чого ти починаешь свій день?.</p>
+
+    <input type="text" id="answer" placeholder="Введи відповідь..." />
+    <button class="button" onclick="checkAnswer()">Ввести відповідь</button>
+
+    <p class="message" id="message"></p>
+</div>
+
+<script>
+    function checkAnswer() {
+        const userAnswer = document.getElementById("answer").value.trim();
+        const correctAnswer = "Грогу"; // правильна відповідь
+
+        if (userAnswer === correctAnswer) {
+            document.getElementById("message").textContent = "А ти не так проста як я думав...Ну добре. ";
+            const nextButton = document.createElement("button");
+            nextButton.classList.add("button");
+            nextButton.textContent = "Наступне випробуваня!";
+            nextButton.onclick = function() {
+                window.location.href = "2question.html"; // наступна сторінка
+            };
+            document.getElementById("message").appendChild(nextButton);
+        } else {
+            document.getElementById("message").textContent = "ВУХАХАХА ТРИМАЙ ЦЬОМКУ!";
+        }
+    }
+</script>
+
+</body>
+</html>
